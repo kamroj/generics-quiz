@@ -1,0 +1,23 @@
+Zadanie: 
+1
+
+Opis:
+<t> class GenericsAreFun {
+    private t t;
+
+    r changeToT(Function<t, r> function) {
+        return function.apply(t);
+    }
+}
+
+Odpowiedź: 
+3
+
+Wytłumaczenie:
+Lista błędów:
+
+1. Deklaracja typu generycznego <t> powinna być po nazwie klasy.
+2. Brak konstruktora, który definiuje czym w ogóle jest typ “t”.
+3. Brak deklaracji typu generycznego <r> przed nazwą metody.
+ 
+ps. deklaracja typu generycznego małą literą nie powoduje błędów natomiast jest złamaniem konwencji.

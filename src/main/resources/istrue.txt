@@ -1,0 +1,23 @@
+Zadanie: 
+1
+
+Opis:
+Typy generyczne zostały wprowadzone w Javie 1.5.
+
+Odpowiedź: 
+t
+
+Wytłumaczenie:
+Tak, typy generyczne zostały wprowadzone w Javie 1.5 (Tygrysek).
+
+Zadanie: 
+2
+
+Opis:
+Jedną z wad generyków jest tak zwane “type safety”.
+
+Odpowiedź: 
+n
+
+Wytłumaczenie:
+Type Safety czyli bezpieczne typowanie to jedna z zalet typów generycznych. Unikamy możliwości wystąpienia wyjątku ClassCastException podczas wykonywania programu a sam problem zostaje wykryty na poziomie kompilacji.

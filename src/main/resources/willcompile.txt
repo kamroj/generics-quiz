@@ -1,0 +1,30 @@
+Zadanie: 
+1
+
+Opis:
+class GenericMethod {
+    void <T> handleOperation(T t) {
+    }
+}
+
+Odpowiedź: 
+n
+
+Wytłumaczenie:
+Zła struktura metody. Informacja o typie generycznym występuje przed typem zwrotnym metody.
+
+Zadanie: 
+2
+
+Opis:
+class GenericMethod {
+    T operate (T t) {
+        return t;
+    }
+}
+
+Odpowiedź: 
+n
+
+Wytłumaczenie:
+Typ generyczny nie jest zdefiniowany. Brakuje deklaracji typu przy nazwie klasy.
