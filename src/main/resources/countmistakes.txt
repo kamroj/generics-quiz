@@ -1,7 +1,6 @@
-Zadanie: 
-1
+$task$ 1
 
-Opis:
+$description$
 <t> class GenericsAreFun {
     private t t;
 
@@ -10,10 +9,10 @@ Opis:
     }
 }
 
-Odpowiedź: 
+$answer$
 3
 
-Wytłumaczenie:
+$explanation$
 Lista błędów:
 
 1. Deklaracja typu generycznego <t> powinna być po nazwie klasy.

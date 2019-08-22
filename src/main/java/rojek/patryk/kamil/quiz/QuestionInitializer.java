@@ -37,18 +37,18 @@ class QuestionInitializer {
       Question question = null;
 
       while (line != null) {
-        if (line.contains("Opis:")) { //todo zmienić na klucze
+        if (line.contains("$description$")) { //todo zmienić na klucze
           if (++questionCounter > questionLimit) break;
           question = clearQuestion(question);
           setDescription(question);
         }
 
         if (question != null) {
-          if (line.contains("Odpowiedź:")) { //todo zmienić na klucze
+          if (line.contains("$answer$")) { //todo zmienić na klucze
             setAnswer(question);
           }
 
-          if (line.contains("Wytłumaczenie:")) { //todo zmienić na klucze
+          if (line.contains("$explanation$")) { //todo zmienić na klucze
             setExplanation(question);
           }
         }
@@ -65,7 +65,7 @@ class QuestionInitializer {
     StringBuilder sb = new StringBuilder();
     line = questionFileReader.readLine();
 
-    while (line != null && !line.contains("Odpowiedź:")) {
+    while (line != null && !line.contains("$answer$")) {
       if (line.isBlank()) {
         line = questionFileReader.readLine();
         continue;
@@ -86,7 +86,7 @@ class QuestionInitializer {
     StringBuilder sb = new StringBuilder("\n");
     line = questionFileReader.readLine();
 
-    while (line != null && !line.contains("Zadanie:")) {
+    while (line != null && !line.contains("$task$")) {
       if (line.isBlank()) {
         line = questionFileReader.readLine();
         continue;

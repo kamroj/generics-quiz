@@ -1,0 +1,31 @@
+$task$ 1
+
+$description$
+class test1 {
+  void testMethod () {
+    test test;
+  }
+}
+
+$answer$
+1
+
+$explanation$
+test explanation
+123 test explanation 123
+
+$task$ 2
+
+$description$
+class test2 {
+  void testMethod () {
+    test test;
+  }
+}
+
+$answer$
+2
+
+$explanation$
+test explanation
+123 test explanation 123

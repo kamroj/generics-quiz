@@ -1,30 +1,28 @@
-Zadanie: 
-1
+$task$ 1
 
-Opis:
+$description$
 class GenericMethod {
     void <T> handleOperation(T t) {
     }
 }
 
-Odpowiedź: 
+$answer$
 n
 
-Wytłumaczenie:
+$explanation$
 Zła struktura metody. Informacja o typie generycznym występuje przed typem zwrotnym metody.
 
-Zadanie: 
-2
+$task$ 2
 
-Opis:
+$description$
 class GenericMethod {
     T operate (T t) {
         return t;
     }
 }
 
-Odpowiedź: 
+$answer$
 n
 
-Wytłumaczenie:
+$explanation$
 Typ generyczny nie jest zdefiniowany. Brakuje deklaracji typu przy nazwie klasy.
