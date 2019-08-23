@@ -1,14 +1,10 @@
 package rojek.patryk.kamil.quiz;
 
-import static org.testng.Assert.*;
-
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Map;
 import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -51,7 +47,7 @@ public class QuizHistoryTest {
     Assert.assertEquals(answer, "Lorem ipsum answer");
   }
 
-  @Test(priority = 3, enabled = false) //todo fix lines separators
+  @Test(priority = 3)
   public void testPrintHistory() throws IOException {
     String expectedResult =
         "###############################################################################################################\n"
@@ -72,6 +68,6 @@ public class QuizHistoryTest {
     quizHistory.printHistory();
     String result = Files.readString(Paths.get("src/test/resources/quiz-logs.log"));
 
-    Assert.assertEquals(result, expectedResult);
+    Assert.assertEquals(result.replaceAll("\\s", ""), expectedResult.replaceAll("\\s", ""));
   }
 }
