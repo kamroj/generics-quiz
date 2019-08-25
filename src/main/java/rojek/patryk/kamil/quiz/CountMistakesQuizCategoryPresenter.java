@@ -1,17 +1,18 @@
 package rojek.patryk.kamil.quiz;
 
-import java.util.Scanner;
 import rojek.patryk.kamil.communication.MessageHandler;
 import rojek.patryk.kamil.communication.UserInput;
 
 class CountMistakesQuizCategoryPresenter extends QuizPresenter {
 
-  CountMistakesQuizCategoryPresenter() {
+  CountMistakesQuizCategoryPresenter(UserInput userInput) {
+    super(userInput);
     super.questionsPack =
         QuestionInitializer.initialize(QuestionCategory.COUNT_MISTAKES).getQuestionPack();
   }
 
-  CountMistakesQuizCategoryPresenter(int questionLimit) {
+  CountMistakesQuizCategoryPresenter(UserInput userInput, int questionLimit) {
+    super(userInput);
     super.questionsPack =
         QuestionInitializer.initialize(QuestionCategory.COUNT_MISTAKES)
             .withLimit(questionLimit)
@@ -20,8 +21,7 @@ class CountMistakesQuizCategoryPresenter extends QuizPresenter {
 
   @Override
   protected void askForAnswer(Question question) {
-    UserInput userInput = new UserInput(new Scanner(System.in));
-    String answer = userInput.getNumericInput();
+    String answer = super.userInput.getNumericInput();
     quizHistory.updateHistory(question, answer);
   }
 

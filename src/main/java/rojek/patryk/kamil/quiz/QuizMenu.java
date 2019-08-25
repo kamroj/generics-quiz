@@ -2,10 +2,11 @@ package rojek.patryk.kamil.quiz;
 
 import static rojek.patryk.kamil.communication.MessageHandler.getMessageFromBundle;
 import static rojek.patryk.kamil.communication.MessageHandler.logFormattedMessage;
+import static rojek.patryk.kamil.communication.MessageHandler.logMessage;
+import static rojek.patryk.kamil.communication.MessageHandler.logMessageFromBundle;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 import rojek.patryk.kamil.communication.UserInput;
 
 public class QuizMenu {
@@ -13,11 +14,12 @@ public class QuizMenu {
   private QuizStarter quizStarter;
   private Map<Integer, String> mainMenuOptionsMap;
   private Map<Integer, QuestionCategory> questionsSettingsMap;
-  private UserInput userInput = new UserInput(new Scanner(System.in));
+  private UserInput userInput;
 
-  public QuizMenu() {
+  public QuizMenu(UserInput userInput) {
+    this.userInput = userInput;
     this.quizSettings = new QuizSettings();
-    this.quizStarter = new QuizStarter(quizSettings);
+    this.quizStarter = new QuizStarter(userInput, quizSettings);
     initializeMainMenuMap();
     initializeQuestionSettingsMap();
   }
@@ -29,7 +31,7 @@ public class QuizMenu {
   }
 
   private void displayMainOptions() {
-    System.out.println();
+    logMessage("");
     mainMenuOptionsMap.forEach(
         (key, value) -> {
           logFormattedMessage("%s: %s", key, value);
@@ -56,7 +58,7 @@ public class QuizMenu {
   private void displayQuestionSettings() {
     questionsSettingsMap.forEach(
         (key, value) -> {
-          logFormattedMessage("%s: s", key, value);
+          logFormattedMessage("%s: %s", key, value);
         });
 
     int choice = userInput.getValidMapKeyIntegerInput(questionsSettingsMap);
@@ -90,6 +92,6 @@ public class QuizMenu {
   }
 
   private void displayProjectDescription() {
-    getMessageFromBundle("PROJECT_DESCRIPTION");
+    logMessageFromBundle("PROJECT_DESCRIPTION");
   }
 }

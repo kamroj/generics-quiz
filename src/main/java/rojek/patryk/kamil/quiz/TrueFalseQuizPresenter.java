@@ -4,19 +4,20 @@ import java.util.Scanner;
 import rojek.patryk.kamil.communication.UserInput;
 
 abstract class TrueFalseQuizPresenter extends QuizPresenter {
-  TrueFalseQuizPresenter(QuestionCategory questionCategory) {
+  TrueFalseQuizPresenter(UserInput userInput, QuestionCategory questionCategory) {
+    super(userInput);
     super.questionsPack = QuestionInitializer.initialize(questionCategory).getQuestionPack();
   }
 
-  TrueFalseQuizPresenter(QuestionCategory questionCategory, int questionLimit) {
+  TrueFalseQuizPresenter(UserInput userInput, QuestionCategory questionCategory, int questionLimit) {
+    super(userInput);
     super.questionsPack =
         QuestionInitializer.initialize(questionCategory).withLimit(questionLimit).getQuestionPack();
   }
 
   @Override
   protected void askForAnswer(Question question) {
-    UserInput userInput = new UserInput(new Scanner(System.in));
-    String answer = userInput.getConfirmationInput();
+    String answer = super.userInput.getConfirmationInput();
     quizHistory.updateHistory(question, answer);
   }
 

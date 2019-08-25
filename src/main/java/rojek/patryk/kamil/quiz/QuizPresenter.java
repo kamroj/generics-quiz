@@ -5,9 +5,16 @@ import static rojek.patryk.kamil.communication.MessageHandler.logFormattedMessag
 import static rojek.patryk.kamil.communication.MessageHandler.logMessage;
 import static rojek.patryk.kamil.communication.MessageHandler.logMessageFromBundle;
 
+import rojek.patryk.kamil.communication.UserInput;
+
 abstract class QuizPresenter {
   QuizHistory quizHistory = QuizHistory.getInstance();
   QuestionsPack questionsPack;
+  UserInput userInput;
+
+  QuizPresenter(UserInput userInput) {
+    this.userInput = userInput;
+  }
 
   void displayQuiz() {
     categoryDescription();

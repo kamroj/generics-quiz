@@ -2,13 +2,15 @@ package rojek.patryk.kamil.quiz;
 
 import static rojek.patryk.kamil.communication.MessageHandler.logMessageFromBundle;
 
+import rojek.patryk.kamil.communication.UserInput;
+
 class WillCompileQuizCategoryPresenter extends TrueFalseQuizPresenter {
-  WillCompileQuizCategoryPresenter() {
-    super(QuestionCategory.WILL_COMPILE);
+  WillCompileQuizCategoryPresenter(UserInput userInput) {
+    super(userInput, QuestionCategory.WILL_COMPILE);
   }
 
-  WillCompileQuizCategoryPresenter(int questionLimit) {
-    super(QuestionCategory.WILL_COMPILE, questionLimit);
+  WillCompileQuizCategoryPresenter(UserInput userInput, int questionLimit) {
+    super(userInput, QuestionCategory.WILL_COMPILE, questionLimit);
   }
 
   @Override
