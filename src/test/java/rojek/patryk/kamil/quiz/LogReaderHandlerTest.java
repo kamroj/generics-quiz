@@ -30,7 +30,7 @@ public class LogReaderHandlerTest {
     String consoleLogs = LogReaderHandler.readExpectedConsoleLogs("log-reader-test-correct");
     String expectedConsoleLogs = "1:Rozpocznijquiz2:Zmieńilośćpytań3:Opisprojektu";
 
-    Assert.assertEquals(expectedConsoleLogs, expectedConsoleLogs);
+    Assert.assertEquals(consoleLogs, expectedConsoleLogs);
   }
 
   @Test
