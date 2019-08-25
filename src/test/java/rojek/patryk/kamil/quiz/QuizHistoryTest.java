@@ -1,12 +1,10 @@
 package rojek.patryk.kamil.quiz;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Map;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import rojek.patryk.kamil.quiz.LogReaderHandler.TestCaseFileException;
 
 public class QuizHistoryTest {
   private QuizHistory quizHistory;
@@ -48,26 +46,12 @@ public class QuizHistoryTest {
   }
 
   @Test(priority = 3)
-  public void testPrintHistory() throws IOException {
-    String expectedResult =
-        "###############################################################################################################\n"
-            + "Treść zadania 1: \n"
-            + "desc\n"
-            + "Twoja odpowiedź: Lorem ipsum\n"
-            + "Prawidłowa odpowiedź: answer\n"
-            + "Wyjaśnienie: expl\n"
-            + "###############################################################################################################\n"
-            + "###############################################################################################################\n"
-            + "Treść zadania 2: \n"
-            + "desc\n"
-            + "Twoja odpowiedź: Lorem ipsum answer\n"
-            + "Prawidłowa odpowiedź: Lorem ipsum\n"
-            + "Wyjaśnienie: expl\n"
-            + "###############################################################################################################\n";
+  public void testPrintHistory() throws TestCaseFileException {
+    String expectedResult = LogReaderHandler.readExpectedConsoleLogs("quiz-history-expected-log");
 
     quizHistory.printHistory();
-    String result = Files.readString(Paths.get("src/test/resources/quiz-logs.log"));
+    String resultLogs = LogReaderHandler.readConsoleQuizLogs("quiz-logs.log");
 
-    Assert.assertEquals(result.replaceAll("\\s", ""), expectedResult.replaceAll("\\s", ""));
+    Assert.assertEquals(resultLogs, expectedResult);
   }
 }
