@@ -58,7 +58,7 @@ public class QuizMenu {
   private void displayQuestionSettings() {
     questionsSettingsMap.forEach(
         (key, value) -> {
-          logFormattedMessage("%s: %s", key, value);
+          logFormattedMessage("%s: %s", key, getMessageFromBundle(value.categoryName));
         });
 
     int choice = userInput.getValidMapKeyIntegerInput(questionsSettingsMap);
@@ -71,7 +71,10 @@ public class QuizMenu {
     int choice = Integer.parseInt(userInput.getNumericInput());
 
     quizSettings.setQuestionQuantityForCategory(category, choice);
-    logFormattedMessage(getMessageFromBundle("QUESTION_QUANTITY_CONFIRMATION"), choice, category);
+    logFormattedMessage(
+        getMessageFromBundle("QUESTION_QUANTITY_CONFIRMATION"),
+        choice,
+        getMessageFromBundle(category.categoryName));
     initialize();
   }
 
