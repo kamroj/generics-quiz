@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="INFO">
   <Appenders>
-    <File name="MyFile" fileName="src/test/resources/quiz-logs.log" immediateFlush="true" append="false">
+    <File name="MyFile" fileName="src/test/resources/quiz-logs-test.log" immediateFlush="true" append="false">
       <PatternLayout charset="UTF-8" pattern="%msg%n"/>
     </File>
   </Appenders>

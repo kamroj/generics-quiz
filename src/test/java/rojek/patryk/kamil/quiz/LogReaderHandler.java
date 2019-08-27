@@ -1,5 +1,7 @@
 package rojek.patryk.kamil.quiz;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -9,7 +11,7 @@ import java.util.Scanner;
 
 class LogReaderHandler {
   private static final String TEST_CASE_PATH = "src/test/resources/game_test_cases/";
-  private static final String QUIZ_LOGS = "src/test/resources/";
+  private static final String QUIZ_LOGS_PATH = "src/test/resources/quiz-logs-test.log";
 
   static String readUserInputTestCaseSteps(String testCaseName) throws TestCaseFileException {
     try (Scanner scanner = new Scanner(new File(TEST_CASE_PATH + testCaseName))) {
@@ -41,12 +43,20 @@ class LogReaderHandler {
     }
   }
 
-  static String readConsoleQuizLogs(String quizLogFileName) throws TestCaseFileException {
+  static String readConsoleQuizLogs() throws TestCaseFileException {
     try {
-      String logs = Files.readString(Paths.get(QUIZ_LOGS + quizLogFileName));
+      String logs = Files.readString(Paths.get(QUIZ_LOGS_PATH));
       return removeWhiteSpaces(logs);
     } catch (IOException e) {
       throw new TestCaseFileException("Error while reading logs file!");
+    }
+  }
+
+  static void clearTestLogFile() {
+    try (BufferedWriter bw =  Files.newBufferedWriter(Paths.get(QUIZ_LOGS_PATH))){
+      bw.write("");
+    } catch (IOException e) {
+      System.err.println("Problem with clearing test log file!");
     }
   }
 

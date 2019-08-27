@@ -1,6 +1,48 @@
 Steps:
-2 1 2 2 2 2 2 3 1 1 y y y y 1 1
+2 1 2 2 2 2 2 3 1 1 y y y y 1
 Logs:
+
+1: Rozpocznij quiz
+2: Zmień ilość pytań
+3: Opis projektu
+
+Wybierz opcje:
+1: Skompiluje się?
+2: Jest prawdą, że ...
+3: Policz błedy
+
+Wybierz opcje:
+Podaj odpowiedź 0 - 9999:
+Ustawiono liczbę pytań na 2 dla categorii "Skompiluje się?"
+
+
+1: Rozpocznij quiz
+2: Zmień ilość pytań
+3: Opis projektu
+
+Wybierz opcje:
+1: Skompiluje się?
+2: Jest prawdą, że ...
+3: Policz błedy
+
+Wybierz opcje:
+Podaj odpowiedź 0 - 9999:
+Ustawiono liczbę pytań na 2 dla categorii "Jest prawdą, że ..."
+
+
+1: Rozpocznij quiz
+2: Zmień ilość pytań
+3: Opis projektu
+
+Wybierz opcje:
+1: Skompiluje się?
+2: Jest prawdą, że ...
+3: Policz błedy
+
+Wybierz opcje:
+Podaj odpowiedź 0 - 9999:
+Ustawiono liczbę pytań na 1 dla categorii "Policz błedy"
+
 
 1: Rozpocznij quiz
 2: Zmień ilość pytań
@@ -62,15 +104,6 @@ class test1 {
 
 Podaj odpowiedź 0 - 9999:
 ---------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------
-class test2 {
-  void testMethod () {
-    test test;
-  }
-}
-
-Podaj odpowiedź 0 - 9999:
----------------------------------------------------------------------------------------------------------------
 ###############################################################################################################
 Treść zadania 1:
 test 1 description test
@@ -109,24 +142,8 @@ test explanation
 
 
 ###############################################################################################################
-###############################################################################################################
-Treść zadania 4:
-class test2 {
-  void testMethod () {
-    test test;
-  }
-}
-
-Twoja odpowiedź: 1
-Prawidłowa odpowiedź: 2
-Wyjaśnienie:
-test explanation
-123 test explanation 123
-
-
-###############################################################################################################
 KONIEC QUIZU
-POPRAWNE ODPOWIEDZI: 3 / 4
+POPRAWNE ODPOWIEDZI: 3 / 3
 
 Powyżej znajdziesz historie wszystkich pytań wraz z prawidłowymi odpowiedziami oraz opisami do odpowiedzi.
 Jeżli widzisz gdzieś jakiś błąd to albo popraw go sam w plikach z pytaniami albo daj znać na kamroj@gmail.com
