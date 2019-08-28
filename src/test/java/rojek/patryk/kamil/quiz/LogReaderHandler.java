@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 class LogReaderHandler {
   private static final String TEST_CASE_PATH = "src/test/resources/game_test_cases/";
-  private static final String QUIZ_LOGS_PATH = "src/test/resources/quiz-logs-test.log";
+  private static final String QUIZ_LOGS_PATH = "src/test/resources/";
 
   static String readUserInputTestCaseSteps(String testCaseName) throws TestCaseFileException {
     try (Scanner scanner = new Scanner(new File(TEST_CASE_PATH + testCaseName))) {
@@ -43,9 +43,9 @@ class LogReaderHandler {
     }
   }
 
-  static String readConsoleQuizLogs() throws TestCaseFileException {
+  static String readConsoleQuizLogs(String quizLogFileName) throws TestCaseFileException {
     try {
-      String logs = Files.readString(Paths.get(QUIZ_LOGS_PATH));
+      String logs = Files.readString(Paths.get(QUIZ_LOGS_PATH + quizLogFileName));
       return removeWhiteSpaces(logs);
     } catch (IOException e) {
       throw new TestCaseFileException("Error while reading logs file!");

@@ -36,7 +36,7 @@ public class LogReaderHandlerTest {
   @Test
   public void readConsoleQuizLogs_shouldReturnStringWithoutWhitespaces()
       throws TestCaseFileException {
-    String consoleLogs = LogReaderHandler.readConsoleQuizLogs();
+    String consoleLogs = LogReaderHandler.readConsoleQuizLogs("quiz-logs-for-test.log");
     String expectedLogs = "1:Rozpocznijquiz2:Zmieńilośćpytań3:Opisprojektu";
 
     Assert.assertEquals(consoleLogs, expectedLogs);

@@ -50,7 +50,7 @@ public class QuizHistoryTest {
     String expectedResult = LogReaderHandler.readExpectedConsoleLogs("quiz-history-expected-log");
 
     quizHistory.printHistory();
-    String resultLogs = LogReaderHandler.readConsoleQuizLogs();
+    String resultLogs = LogReaderHandler.readConsoleQuizLogs("quiz-logs-test.log");
 
     Assert.assertEquals(resultLogs, expectedResult);
   }

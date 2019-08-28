@@ -20,3 +20,50 @@ Lista błędów:
 3. Brak deklaracji typu generycznego <r> przed nazwą metody.
  
 ps. deklaracja typu generycznego małą literą nie powoduje błędów natomiast jest złamaniem konwencji.
+
+$task$ 2
+
+$description$
+class GenericsAreFun<T super Integer> {
+    static T doSth(T t, T t){
+        return t;
+    }
+}
+$answer$
+3
+
+$explanation$
+Lista błędów:
+
+1. Typ generyczny nie może być zastosowany w przypadku metod statycznych.
+2. Nie można określać dolnej granicy w przypadku typów generycznych.
+3. Argumenty metody doSth są identyczne, zatem kompilator nie wie, którą wartość powinien zwrócić.
+
+$task$ 3
+
+$description$
+class GenericsAreFun<T K extends Number implements RandomAccess, Completion> {
+    private T t;
+    
+    GenericsAreFun(T t) {
+        this.t = t;
+    }
+    
+    K doSth(List<? extends K> elements){
+        return elements.stream().findFirst().get();
+    }
+}
+
+$answer$
+2
+
+$explanation$
+Lista błędów:
+
+1. Przecinek między typami generycznymi T, K.
+2. Słówko "implements" nie istnieje w przypadku deklaracji typów generycznych. Używa się zawsze słowka "extends"
+w przypadku pierwszego rozszerzenia czy to interfejsu czy klasy. 
+Jeżeli chcemy kontynuować ograniczanie typu generycznego o kolejne interfejsy używamy ampersanta "&".
+
+ps. tak naprawdę Completion to nie kolejny interfejs a zadeklarowany typ generyczny, którego nie używamy w klasie. 
+Nie spowoduje błędów w trakcie kompilacji ani wykonywania ale Pan Martin nie byłby z nas zadowolony :-)
