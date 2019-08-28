@@ -11,7 +11,7 @@ import rojek.patryk.kamil.communication.UserInput;
 
 public class QuizMenu {
   private QuizSettings quizSettings;
-  private QuizStarter quizStarter;
+  private QuizPresenterManager quizPresenterManager;
   private Map<Integer, String> mainMenuOptionsMap;
   private Map<Integer, QuestionCategory> questionsSettingsMap;
   private UserInput userInput;
@@ -19,12 +19,12 @@ public class QuizMenu {
   public QuizMenu(UserInput userInput) {
     this.userInput = userInput;
     this.quizSettings = new QuizSettings();
-    this.quizStarter = new QuizStarter(userInput, quizSettings);
+    this.quizPresenterManager = new QuizPresenterManager(userInput, quizSettings);
     initializeMainMenuMap();
     initializeQuestionSettingsMap();
   }
 
-  public void initialize() {
+  public void initializeMenu() {
     displayMainOptions();
     int choice = userInput.getValidMapKeyIntegerInput(mainMenuOptionsMap);
     loadOption(choice);
@@ -41,14 +41,14 @@ public class QuizMenu {
   private void loadOption(int choice) {
     switch (choice) {
       case 1:
-        quizStarter.run();
+        quizPresenterManager.startQuiz();
         break;
       case 2:
         displayQuestionSettings();
         break;
       case 3:
         displayProjectDescription();
-        initialize();
+        initializeMenu();
         break;
       default:
         break;
@@ -58,7 +58,11 @@ public class QuizMenu {
   private void displayQuestionSettings() {
     questionsSettingsMap.forEach(
         (key, value) -> {
-          logFormattedMessage("%s: %s", key, getMessageFromBundle(value.categoryName));
+          logFormattedMessage(
+              "%s: %s (%d)",
+              key,
+              getMessageFromBundle(value.categoryName),
+              quizPresenterManager.getQuestionsQuantityFor(value));
         });
 
     int choice = userInput.getValidMapKeyIntegerInput(questionsSettingsMap);
@@ -73,9 +77,9 @@ public class QuizMenu {
     quizSettings.setQuestionQuantityForCategory(category, choice);
     logFormattedMessage(
         getMessageFromBundle("QUESTION_QUANTITY_CONFIRMATION"),
-        choice,
         getMessageFromBundle(category.categoryName));
-    initialize();
+    quizPresenterManager.reloadPresenters();
+    initializeMenu();
   }
 
   private void initializeMainMenuMap() {

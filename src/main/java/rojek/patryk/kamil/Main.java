@@ -8,6 +8,6 @@ public class Main {
   public static void main(String[] args) {
     UserInput userInput = new UserInput(new Scanner(System.in));
     QuizMenu quizMenu = new QuizMenu(userInput);
-    quizMenu.initialize();
+    quizMenu.initializeMenu();
   }
 }

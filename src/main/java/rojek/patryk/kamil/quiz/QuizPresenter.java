@@ -8,12 +8,22 @@ import static rojek.patryk.kamil.communication.MessageHandler.logMessageFromBund
 import rojek.patryk.kamil.communication.UserInput;
 
 abstract class QuizPresenter {
+  private QuestionsPack questionsPack;
+  private QuestionCategory presenterCategory;
   QuizHistory quizHistory = QuizHistory.getInstance();
-  QuestionsPack questionsPack;
   UserInput userInput;
 
-  QuizPresenter(UserInput userInput) {
+  QuizPresenter(UserInput userInput, QuestionCategory category) {
     this.userInput = userInput;
+    this.presenterCategory = category;
+    this.questionsPack = QuestionInitializer.initialize(presenterCategory).getQuestionPack();
+  }
+
+  QuizPresenter(UserInput userInput, QuestionCategory category, int questionLimit) {
+    this.userInput = userInput;
+    this.presenterCategory = category;
+    this.questionsPack =
+        QuestionInitializer.initialize(category).withLimit(questionLimit).getQuestionPack();
   }
 
   void displayQuiz() {
@@ -40,6 +50,14 @@ abstract class QuizPresenter {
         break;
       }
     }
+  }
+
+  QuestionCategory getPresenterCategory() {
+    return presenterCategory;
+  }
+
+  int getCategoryQuestionsQuantity() {
+    return questionsPack.getQuestionsQuantity();
   }
 
   protected abstract void displayCategoryDescription();

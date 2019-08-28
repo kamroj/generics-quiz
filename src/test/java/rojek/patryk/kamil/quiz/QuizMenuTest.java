@@ -30,7 +30,7 @@ public class QuizMenuTest {
 
     UserInput userInput = new UserInput(new Scanner(userSteps));
     QuizMenu menu = new QuizMenu(userInput);
-    menu.initialize();
+    menu.initializeMenu();
     String resultLogs = LogReaderHandler.readConsoleQuizLogs("quiz-logs-test.log");
 
     Assert.assertEquals(resultLogs, expectedLogs);
@@ -43,7 +43,7 @@ public class QuizMenuTest {
 
     UserInput userInput = new UserInput(new Scanner(userSteps));
     QuizMenu menu = new QuizMenu(userInput);
-    menu.initialize();
+    menu.initializeMenu();
     String resultLogs = LogReaderHandler.readConsoleQuizLogs("quiz-logs-test.log");
 
     Assert.assertEquals(resultLogs, expectedLogs);

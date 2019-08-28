@@ -6,17 +6,11 @@ import rojek.patryk.kamil.communication.UserInput;
 class CountMistakesQuizCategoryPresenter extends QuizPresenter {
 
   CountMistakesQuizCategoryPresenter(UserInput userInput) {
-    super(userInput);
-    super.questionsPack =
-        QuestionInitializer.initialize(QuestionCategory.COUNT_MISTAKES).getQuestionPack();
+    super(userInput, QuestionCategory.COUNT_MISTAKES);
   }
 
   CountMistakesQuizCategoryPresenter(UserInput userInput, int questionLimit) {
-    super(userInput);
-    super.questionsPack =
-        QuestionInitializer.initialize(QuestionCategory.COUNT_MISTAKES)
-            .withLimit(questionLimit)
-            .getQuestionPack();
+    super(userInput, QuestionCategory.COUNT_MISTAKES, questionLimit);
   }
 
   @Override
