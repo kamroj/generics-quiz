@@ -27,6 +27,8 @@ abstract class QuizPresenter {
   }
 
   void displayQuiz() {
+    if(questionsPack.getQuestionsQuantity() == 0)
+      return;
     categoryDescription();
     askQuestions();
   }
