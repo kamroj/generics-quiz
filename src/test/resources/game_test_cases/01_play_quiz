@@ -1,9 +1,65 @@
 Steps:
-1 y y y y 1 1
+2 2 n 2 1 1 2 2 1 2 1 1 y y y 1 1 1
+
 Logs:
 
 1: Rozpocznij quiz
-2: Zmień ilość pytań
+2: Wyświetl opcje
+3: Opis projektu
+
+Wybierz opcje:
+
+1: Zmień ilość pytań
+2: Losowanie pytań
+3: Wróć do menu głównego
+
+Wybierz opcje:
+Czy losować pytania?
+Podaj odpowiedź y/n
+Losowanie pytań zostało ustawione na: false
+
+1: Rozpocznij quiz
+2: Wyświetl opcje
+3: Opis projektu
+
+Wybierz opcje:
+
+1: Zmień ilość pytań
+2: Losowanie pytań
+3: Wróć do menu głównego
+
+Wybierz opcje:
+1: Skompiluje się? (2)
+2: Jest prawdą, że ... (2)
+3: Policz błedy (2)
+
+Wybierz opcje:
+Podaj odpowiedź 0 - 9999:
+Zmieniono liczbę pytań dla categorii "Skompiluje się?"
+
+
+1: Rozpocznij quiz
+2: Wyświetl opcje
+3: Opis projektu
+
+Wybierz opcje:
+
+1: Zmień ilość pytań
+2: Losowanie pytań
+3: Wróć do menu głównego
+
+Wybierz opcje:
+1: Skompiluje się? (2)
+2: Jest prawdą, że ... (2)
+3: Policz błedy (2)
+
+Wybierz opcje:
+Podaj odpowiedź 0 - 9999:
+Zmieniono liczbę pytań dla categorii "Jest prawdą, że ..."
+
+
+1: Rozpocznij quiz
+2: Wyświetl opcje
 3: Opis projektu
 
 Wybierz opcje:
@@ -41,11 +97,6 @@ Możliwe odpowiedzi:
 ***************************************************************************************************************
 ---------------------------------------------------------------------------------------------------------------
 test 1 description test
-
-Podaj odpowiedź y/n
----------------------------------------------------------------------------------------------------------------
----------------------------------------------------------------------------------------------------------------
-test 2 description test
 
 Podaj odpowiedź y/n
 ---------------------------------------------------------------------------------------------------------------

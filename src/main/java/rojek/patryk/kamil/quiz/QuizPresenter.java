@@ -23,7 +23,13 @@ abstract class QuizPresenter {
     this.userInput = userInput;
     this.presenterCategory = category;
     this.questionsPack =
-        QuestionInitializer.initialize(category).withLimit(questionLimit).getQuestionPack();
+        QuestionInitializer.initialize(category)
+                          .withLimit(questionLimit)
+                          .getQuestionPack();
+  }
+
+  void shuffleQuestions() {
+    questionsPack.shuffle();
   }
 
   void displayQuiz() {

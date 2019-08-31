@@ -15,10 +15,12 @@ public class QuestionInitializerTest {
     Assert.assertEquals(2, questionPack.getQuestionsQuantity());
   }
 
-  @Test
-  public void initializeCountMistakePack_CheckQuestionsParts_shouldGiveSameResultsAsExpected()
-      throws NoQuestionException {
-    QuestionsPack questionPack = QuestionInitializer.initialize(COUNT_MISTAKES).getQuestionPack();
+  @Test(invocationCount = 100)
+  public void
+      initializeCountMistakePack_checkQuestionsPartsWithNoQuestionShuffle_shouldGiveSameResultsAsExpected()
+          throws NoQuestionException {
+    QuestionsPack questionPack =
+        QuestionInitializer.initialize(COUNT_MISTAKES).getQuestionPack();
 
     Question firstQuestion = questionPack.getQuestion();
     Question secondQuestion = questionPack.getQuestion();

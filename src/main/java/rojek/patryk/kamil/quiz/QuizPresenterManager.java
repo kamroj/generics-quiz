@@ -11,15 +11,54 @@ import rojek.patryk.kamil.communication.UserInput;
 
 class QuizPresenterManager {
   private List<QuizPresenter> presenters;
-  private EnumMap<QuestionCategory, Integer> questionQuantity = new EnumMap<>(QuestionCategory.class);
+  private EnumMap<QuestionCategory, Integer> questionQuantity =
+      new EnumMap<>(QuestionCategory.class);
   private UserInput userInput;
   private QuizSettings settings;
+  private boolean shuffleQuestions = true;
 
   QuizPresenterManager(UserInput userInput, QuizSettings settings) {
     this.userInput = userInput;
     this.settings = settings;
     initializeQuizCategories();
   }
+
+  private void initializeQuizCategories() {
+    QuizPresenter willCompile =
+        new WillCompileQuizCategoryPresenter(
+            userInput, settings.getQuestionQuantityForCategory(WILL_COMPILE));
+    QuizPresenter isTrue =
+        new IsTrueQuizCategoryPresenter(
+            userInput, settings.getQuestionQuantityForCategory(IS_TRUE));
+    QuizPresenter countMistakes =
+        new CountMistakesQuizCategoryPresenter(
+            userInput, settings.getQuestionQuantityForCategory(COUNT_MISTAKES));
+
+    addPresenter(willCompile, isTrue, countMistakes);
+
+    if (shuffleQuestions) {
+      presenters.forEach(QuizPresenter::shuffleQuestions);
+    }
+  }
+
+  private void addPresenter(QuizPresenter... presenter) {
+    presenters = new LinkedList<>();
+    for (QuizPresenter p : presenter) {
+      presenters.add(p);
+      questionQuantity.put(p.getPresenterCategory(), p.getCategoryQuestionsQuantity());
+    }
+  }
+
+  void shuffleQuestions(boolean shuffle) {
+    this.shuffleQuestions = shuffle;
+  }
+
+  private void printQuizSummary() {
+    QuizHistory.getInstance().printHistory();
+    QuizAnswerChecker answerChecker = new QuizAnswerChecker();
+    answerChecker.printAnswersResult();
+  }
+
   void startQuiz() {
     presenters.forEach(QuizPresenter::displayQuiz);
     printQuizSummary();
@@ -29,32 +68,7 @@ class QuizPresenterManager {
     initializeQuizCategories();
   }
 
-  private void addPresenter(QuizPresenter... presenter) {
-    presenters = new LinkedList<>();
-    for (QuizPresenter p : presenter) {
-        presenters.add(p);
-        questionQuantity.put(p.getPresenterCategory(), p.getCategoryQuestionsQuantity());
-    }
-  }
-
-  private void printQuizSummary() {
-    QuizHistory.getInstance().printHistory();
-    QuizAnswerChecker answerChecker = new QuizAnswerChecker();
-    answerChecker.printAnswersResult();
-  }
-
   int getQuestionsQuantityFor(QuestionCategory category) {
     return questionQuantity.get(category);
-  }
-
-  private void initializeQuizCategories() {
-    QuizPresenter willCompile =
-        new WillCompileQuizCategoryPresenter(userInput, settings.getQuestionQuantityForCategory(WILL_COMPILE));
-    QuizPresenter isTrue =
-        new IsTrueQuizCategoryPresenter(userInput, settings.getQuestionQuantityForCategory(IS_TRUE));
-    QuizPresenter countMistakes =
-        new CountMistakesQuizCategoryPresenter(userInput, settings.getQuestionQuantityForCategory(COUNT_MISTAKES));
-
-    addPresenter(willCompile, isTrue, countMistakes);
   }
 }
