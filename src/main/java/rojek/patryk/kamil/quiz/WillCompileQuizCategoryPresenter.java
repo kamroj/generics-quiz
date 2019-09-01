@@ -9,10 +9,6 @@ class WillCompileQuizCategoryPresenter extends TrueFalseQuizPresenter {
     super(userInput, QuestionCategory.WILL_COMPILE);
   }
 
-  WillCompileQuizCategoryPresenter(UserInput userInput, int questionLimit) {
-    super(userInput, QuestionCategory.WILL_COMPILE, questionLimit);
-  }
-
   @Override
   protected void displayCategoryDescription() {
     logMessageFromBundle("WILL_COMPILE_CATEGORY_DESCRIPTION");

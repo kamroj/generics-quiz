@@ -37,18 +37,18 @@ class QuestionInitializer {
       Question question = null;
 
       while (line != null) {
-        if (line.contains("$description$")) { //todo zmienić na klucze
+        if (line.contains("$description$")) {
           if (++questionCounter > questionLimit) break;
           question = clearQuestion(question);
           setDescription(question);
         }
 
         if (question != null) {
-          if (line.contains("$answer$")) { //todo zmienić na klucze
+          if (line.contains("$answer$")) {
             setAnswer(question);
           }
 
-          if (line.contains("$explanation$")) { //todo zmienić na klucze
+          if (line.contains("$explanation$")) {
             setExplanation(question);
           }
         }

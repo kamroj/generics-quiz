@@ -10,7 +10,6 @@ import java.util.Map;
 import rojek.patryk.kamil.communication.UserInput;
 
 public class QuizMenu {
-  private QuizSettings quizSettings;
   private QuizPresenterManager quizPresenterManager;
   private Map<Integer, String> mainMenuOptionsMap;
   private Map<Integer, String> quizSettingsMap;
@@ -19,8 +18,7 @@ public class QuizMenu {
 
   public QuizMenu(UserInput userInput) {
     this.userInput = userInput;
-    this.quizSettings = new QuizSettings();
-    this.quizPresenterManager = new QuizPresenterManager(userInput, quizSettings);
+    this.quizPresenterManager = new QuizPresenterManager(userInput);
     initializeMainMenuMap();
     initializeQuestionSettingsMap();
     initializeQuizSettingsMap();
@@ -101,13 +99,12 @@ public class QuizMenu {
   //todo changing quantity of questions should limit existing question pool rather than repeat the process of initializing question from files.
   private void changeQuestionsQuantityForCategory(QuestionCategory category) {
     getMessageFromBundle("GIVE_QUESTION_QUANTITY");
-    int choice = Integer.parseInt(userInput.getNumericInput());
+    int limit = Integer.parseInt(userInput.getNumericInput());
 
-    quizSettings.setQuestionQuantityForCategory(category, choice);
+    quizPresenterManager.changeQuestionsLimitForCategory(limit, category);
     logFormattedMessage(
         getMessageFromBundle("QUESTION_QUANTITY_CONFIRMATION"),
         getMessageFromBundle(category.categoryName));
-    quizPresenterManager.reloadPresenters();
     initializeMenu();
   }
 

@@ -7,10 +7,6 @@ abstract class TrueFalseQuizPresenter extends QuizPresenter {
     super(userInput, questionCategory);
   }
 
-  TrueFalseQuizPresenter(UserInput userInput, QuestionCategory questionCategory, int questionLimit) {
-    super(userInput, questionCategory, questionLimit);
-  }
-
   @Override
   protected void askForAnswer(Question question) {
     String answer = super.userInput.getConfirmationInput();

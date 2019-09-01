@@ -10,6 +10,7 @@ import rojek.patryk.kamil.communication.UserInput;
 abstract class QuizPresenter {
   private QuestionsPack questionsPack;
   private QuestionCategory presenterCategory;
+  private int questionsLimit;
   QuizHistory quizHistory = QuizHistory.getInstance();
   UserInput userInput;
 
@@ -17,15 +18,7 @@ abstract class QuizPresenter {
     this.userInput = userInput;
     this.presenterCategory = category;
     this.questionsPack = QuestionInitializer.initialize(presenterCategory).getQuestionPack();
-  }
-
-  QuizPresenter(UserInput userInput, QuestionCategory category, int questionLimit) {
-    this.userInput = userInput;
-    this.presenterCategory = category;
-    this.questionsPack =
-        QuestionInitializer.initialize(category)
-                          .withLimit(questionLimit)
-                          .getQuestionPack();
+    this.questionsLimit = questionsPack.getQuestionsQuantity();
   }
 
   void shuffleQuestions() {
@@ -33,8 +26,7 @@ abstract class QuizPresenter {
   }
 
   void displayQuiz() {
-    if(questionsPack.getQuestionsQuantity() == 0)
-      return;
+    if (questionsPack.getQuestionsQuantity() == 0) return;
     categoryDescription();
     askQuestions();
   }
@@ -47,8 +39,10 @@ abstract class QuizPresenter {
   }
 
   private void askQuestions() {
-    while (true) {
+    int questionCounter = 0;
+    while (questionCounter < questionsLimit) {
       try {
+        ++questionCounter;
         Question question = questionsPack.getQuestion();
         logMessageFromBundle("DRAW_SEPARATOR_LINES");
         logMessage(question.getDescription());
@@ -64,8 +58,12 @@ abstract class QuizPresenter {
     return presenterCategory;
   }
 
-  int getCategoryQuestionsQuantity() {
-    return questionsPack.getQuestionsQuantity();
+  void setQuestionsLimit(int limit) {
+    this.questionsLimit = Math.min(limit, questionsPack.getQuestionsQuantity());
+  }
+
+  int getQuestionsQuantity() {
+    return questionsLimit;
   }
 
   protected abstract void displayCategoryDescription();

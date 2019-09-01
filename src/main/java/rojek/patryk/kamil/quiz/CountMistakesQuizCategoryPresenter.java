@@ -9,10 +9,6 @@ class CountMistakesQuizCategoryPresenter extends QuizPresenter {
     super(userInput, QuestionCategory.COUNT_MISTAKES);
   }
 
-  CountMistakesQuizCategoryPresenter(UserInput userInput, int questionLimit) {
-    super(userInput, QuestionCategory.COUNT_MISTAKES, questionLimit);
-  }
-
   @Override
   protected void askForAnswer(Question question) {
     String answer = super.userInput.getNumericInput();
