@@ -96,7 +96,6 @@ public class QuizMenu {
     changeQuestionsQuantityForCategory(category);
   }
 
-  //todo changing quantity of questions should limit existing question pool rather than repeat the process of initializing question from files.
   private void changeQuestionsQuantityForCategory(QuestionCategory category) {
     getMessageFromBundle("GIVE_QUESTION_QUANTITY");
     int limit = Integer.parseInt(userInput.getNumericInput());
