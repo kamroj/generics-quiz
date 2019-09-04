@@ -3,6 +3,11 @@ package rojek.patryk.kamil.communication;
 import java.util.Map;
 import java.util.regex.Pattern;
 
+/**
+ * Handles validation of provided input from the user.
+ *
+ * @author Kamil Rojek
+ */
 class InputValidator {
   static boolean numericInput(String input) {
     return isMatching(input, "^\\d{1,4}+$");
