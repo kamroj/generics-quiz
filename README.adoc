@@ -1,0 +1,77 @@
+== Typy generyczne - QUIZ
+
+=== Opis
+
+Czujesz, że jesteś za pan brat z typami generycznymi? Masz wrażenie, że bezproblemowo określisz
+czy dana implementacja typu generycznego skompiluje się bądź nie?
+Uważasz, że znasz podstawową teorie kryjącą się za typami generycznymi w Javie?
+*Sprawdź się* rozwiązując QUIZ jaki dla Ciebie przygotowałem.
+
+Quiz składa się z trzech kategorii:
+
+* `Will compile` - czy kod się skompiluję? - dostajesz kawałek kodu i odpowiadasz na proste pytanie,
+skompiluję się czy nie?
+* `Is true` - czy prawdą jest, że... - pytania teoretyczne sprawdzające twoją wiedzę teoretyczną.
+* `Count mistakes` - policz błędy. - ponownie, dostajesz kawałek kodu, jednak tym razem twoim zadaniem
+jest podanie liczby błędów w kodzie, które *nie przejdą procesu kompilacji*.
+
+Po odpowiedzeniu na wszystkie pytania wyświetli się podsumowanie. W podsumowaniu podliczona
+zostanie liczba punktów jaką otrzymałeś z całego Quizu. Ponadto dostępna będzie historia zawierająca
+numer pytania, twoją odpowiedź, poprawną odpowiedź oraz wytłumaczenie do każdego z pytań.
+Czasem podrzucam również linki, gdzie możecie dowiedzieć się dużo więcej na temat danego zagadnienia.
+
+=== Sposób uruchomienia
+
+Aby uruchomić Quiz należy utowrzyć plik .jar z projektu używając komenty `mvn package`, następnie
+uruchomić ją komendą `java -jar "ścieżka do jarki`.
+
+Docelowo zrobiony będzie skrypt na windowska jak i linuxa, który będzie budował za Ciebie jarkę oraz
+odpalał projekt. Mam jeszcze kilka pomysłów ale to już zostawiam dla siebie. Będzie czas będzie ich
+implementacja :)
+
+=== Rozszerzalność
+
+Możesz dodać własne pytania, jeżeli masz na to ochotę ( polecam gorąco ). Wystarczy zmodyfikować
+plik .txt danej kategorii pod ścieżką ``src/main/java/resources`` trzymając się następującej konwencji:
+
+```
+$task$ nr pytania
+
+$description$
+Opis zadania, bądź skrawek kodu.
+
+$answer$
+Odpowiedź. W przypadku kategorii __Is true__ oraz __Will compile_ jest to y lub n, natomiast
+w __Count mistakes__ liczba błędów.
+
+$explanation$
+Wytłumaczenie jak powinna wyglądać poprawna odpowiedź i dlaczego tak jest. Można dorzucić
+link do materiałów.
+W przypadku kategorii __Will compile__ jeżeli odpowiedzią jest, że dany kawałek kodu się skompiluję
+to wrzucamy tu tempalte "Ten kawałek kodu się skompiluje :)".
+```
+
+Pondato jest przygotowana mechanika pod zmianę wersji językowej. Nie ma jeszcze zaimplementowanej
+interaktywnej opcji zmieniania języków (bo nie ma innej wersji językowej quizu) ale jak znajdę chwilę
+czasu, chęci i motywacje by przetłuamczyć i pytania i menu w Quizie to wrzucę odpowiednie pliki
+oraz zauktalizuje README.
+
+=== Konfiguracja Quizu
+
+W głownym menu wybierając opcję `Wyświetl opcje` możesz skonfigurować:
+
+* __Liczbę pytań per kategoria__ - przy każdej kategorii w nawiasach okrągłych jest podana
+ustawiona liczba pytań (bez zmiany pokazana jest maksymalna ilość pytań dostępna w quizie).
+* __Losowanie pytań__ - domyślnie ustawiona jest wartość `True`.
+
+=== Od siebie
+
+Zawsze fascynowały mnie typy generyczne. Wnoszą one ogromną elastyczność i finezyjność do kodu.
+Mam nadzieje, że dzięki quizowi nie tylko będziesz się czuł się jak w milionerach ale i trochę się nauczysz.
+Najlepsze zrozumienie jakiegokolwiek tematu to zabawa z kodem i czytanie różnego maści materiałów
+tłumaczących czemu jest tak a nie inaczej, dlatego gorąco polecam dodanie swoich pięciu groszy i
+wymyślenie kilku pytań do każdej z kategorii.
+
+Mam jeszcze kilka pomysłów jak ulepszyć quiz, więc pewnie za niedługo dodam coś jeszcze od siebie.
+
+Miłej zabawy!
