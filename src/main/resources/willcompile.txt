@@ -428,3 +428,33 @@ y
 
 $explanation$
 Ten kawałek kodu się skompiluje :)
+
+$task$ 25
+
+$description$
+interface PayloadList<E,P> extends List<E> {
+  void setPayload(int index, P val);
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 26
+
+$description$
+class WildcardMadam {
+  void foo(List<?> i) {
+    i.set(0, i.get(0));
+  }
+}
+
+$answer$
+n
+
+$explanation$
+Kompilator określa typ parametru i jako Object.
+Kiedy metoda foo wywołuje List.set(int, E), kompilator nie jest wstanie
+potwierdzić typu obiektu który jest wkładany do listy.
