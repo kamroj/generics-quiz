@@ -20,6 +20,11 @@ zostanie liczba punktów jaką otrzymałeś z całego Quizu. Ponadto dostępna b
 numer pytania, twoją odpowiedź, poprawną odpowiedź oraz wytłumaczenie do każdego z pytań.
 Czasem podrzucam również linki, gdzie możecie dowiedzieć się dużo więcej na temat danego zagadnienia.
 
+=== Co potrzebujesz by uruchomić
+
+* JDK 11
+* Linux: Bash lub ZSH / Windows: cmd / powershell
+
 === Sposób uruchomienia
 
 Aby uruchomić Quiz należy utowrzyć plik .jar z projektu używając komenty `mvn package`, następnie
