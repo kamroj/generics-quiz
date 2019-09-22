@@ -1,0 +1,223 @@
+
+1: Rozpocznij quiz
+2: Wyświetl opcje
+3: Opis projektu
+
+Wybierz opcje: 
+
+1: Zmień ilość pytań
+2: Losowanie pytań
+3: Wróć do menu głównego
+
+Wybierz opcje: 
+Czy losować pytania?
+Podaj odpowiedź y/n
+Losowanie pytań zostało ustawione na: false
+
+1: Rozpocznij quiz
+2: Wyświetl opcje
+3: Opis projektu
+
+Wybierz opcje: 
+
+1: Zmień ilość pytań
+2: Losowanie pytań
+3: Wróć do menu głównego
+
+Wybierz opcje: 
+1: Skompiluje się? (2)
+2: Jest prawdą, że ... (2)
+3: Policz błedy (2)
+
+Wybierz opcje: 
+Podaj odpowiedź 0 - 9999: 
+Zmieniono liczbę pytań dla categorii "Skompiluje się?"
+
+
+1: Rozpocznij quiz
+2: Wyświetl opcje
+3: Opis projektu
+
+Wybierz opcje: 
+
+1: Zmień ilość pytań
+2: Losowanie pytań
+3: Wróć do menu głównego
+
+Wybierz opcje: 
+1: Skompiluje się? (2)
+2: Jest prawdą, że ... (2)
+3: Policz błedy (2)
+
+Wybierz opcje: 
+Podaj odpowiedź 0 - 9999: 
+Zmieniono liczbę pytań dla categorii "Jest prawdą, że ..."
+
+
+1: Rozpocznij quiz
+2: Wyświetl opcje
+3: Opis projektu
+
+Wybierz opcje: 
+***************************************************************************************************************
+TYP ZADAŃ: WILL_COMPILE
+
+"Pytania przedstawiają kawałek kodu (klasę lub metodę),
+który może lecz nie musi ulec procesowi kompilacji.
+Twoim zadaniem jest odpowiedzieć na to pytanie.
+Możliwe odpowiedzi: 
+"y" - tak 
+"n" - nie.
+
+***************************************************************************************************************
+---------------------------------------------------------------------------------------------------------------
+test 1 description test
+
+Podaj odpowiedź y/n
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+test 2 description test
+
+Podaj odpowiedź y/n
+---------------------------------------------------------------------------------------------------------------
+***************************************************************************************************************
+TYP ZADAŃ: IS_TRUE
+
+Pytania sprawdzą twoją wiedzę teoretyczną o typach generycznych.
+Po każdej odpowiedzi staram się skrótowo tłumaczyć dlaczego jest tak a nie inaczej.
+Kiedy odpowiedź na pytanie jest bardziej złożona, odsyłam do materiałów.
+Możliwe odpowiedzi: 
+"y" - tak 
+"n" - nie.
+
+***************************************************************************************************************
+---------------------------------------------------------------------------------------------------------------
+test 1 description test
+
+Podaj odpowiedź y/n
+---------------------------------------------------------------------------------------------------------------
+***************************************************************************************************************
+TYP ZADAŃ: COUNT_MISTAKES
+
+***************************************************************************************************************
+---------------------------------------------------------------------------------------------------------------
+class test1 {
+  void testMethod () {
+    test test;
+  }
+}
+
+Podaj odpowiedź 0 - 9999: 
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+class test2 {
+  void testMethod () {
+    test test;
+  }
+}
+
+Podaj odpowiedź 0 - 9999: 
+---------------------------------------------------------------------------------------------------------------
+###############################################################################################################
+Treść zadania 1: 
+test 1 description test
+
+Twoja odpowiedź: y
+Prawidłowa odpowiedź: y
+Wyjaśnienie: 
+test 1 explanation
+
+
+###############################################################################################################
+###############################################################################################################
+Treść zadania 2: 
+test 2 description test
+
+Twoja odpowiedź: y
+Prawidłowa odpowiedź: y
+Wyjaśnienie: 
+test 2 explanation
+
+
+###############################################################################################################
+###############################################################################################################
+Treść zadania 3: 
+class test1 {
+  void testMethod () {
+    test test;
+  }
+}
+
+Twoja odpowiedź: 1
+Prawidłowa odpowiedź: 1
+Wyjaśnienie: 
+test explanation
+123 test explanation 123
+
+
+###############################################################################################################
+###############################################################################################################
+Treść zadania 4: 
+class test2 {
+  void testMethod () {
+    test test;
+  }
+}
+
+Twoja odpowiedź: 1
+Prawidłowa odpowiedź: 2
+Wyjaśnienie: 
+test explanation
+123 test explanation 123
+
+
+###############################################################################################################
+KONIEC QUIZU
+POPRAWNE ODPOWIEDZI: 3 / 4
+
+Powyżej znajdziesz historie wszystkich pytań wraz z prawidłowymi odpowiedziami oraz opisami do odpowiedzi.
+Jeżli widzisz gdzieś jakiś błąd to albo popraw go sam w plikach z pytaniami albo daj znać na kamroj@gmail.com
+
+DZIĘKI ZA POŚWIĘCONY CZAS!
+Podaj odpowiedź y/n
+Podaj odpowiedź y/n
+Podaj odpowiedź y/n
+Podaj odpowiedź y/n
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+Podaj odpowiedź 0 - 9999: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
+
+Wybierz opcje: 
