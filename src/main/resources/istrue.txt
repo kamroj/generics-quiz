@@ -1,0 +1,185 @@
+$task$ 1
+
+$description$
+Typy generyczne zostały wprowadzone w Javie 1.5.
+
+$answer$
+y
+
+$explanation$
+Tak, typy generyczne zostały wprowadzone w Javie 1.5 (Tygrysek).
+
+$task$ 2
+
+$description$
+Jedną z wad generyków jest tak zwane "type safety".
+
+$answer$
+n
+
+$explanation$
+Type Safety czyli bezpieczne typowanie to jedna z zalet typów generycznych. 
+Unikamy możliwości wystąpienia wyjątku ClassCastException podczas wykonywania programu 
+a sam problem zostaje wykryty na poziomie kompilacji.
+
+$task$ 3
+
+$description$
+Informacje o typach generycznych możemy znaleźć w kodzie bajtowym skompilowanej klasy.
+
+$answer$
+n
+
+$explanation$
+Typy generyczne są wymazywane podczas procesu kompilacji. 
+Znaczy to tyle, że nasza deklaracja typu generycznego przyjmuje typ jako Object w kodzie bajtowym, 
+który jest rzutowany do odpowiedniego typu ( tego, który zadeklarowaliśmy ). 
+
+$task$ 4
+
+$description$
+List<String> to typ generyczny.
+
+$answer$
+n
+
+$explanation$
+Typem generycznym jest List<E>. List<String> jest typem sparametryzowanym.
+
+$task$ 5
+
+$description$
+Dziką kartę "?" możemy używać tylko w przypadku kolekcji.
+
+$answer$
+y
+
+$explanation$
+Dziką kartę używa się tylko I wyłącznie podczas deklaracji kolekcji.
+
+$task$ 6
+
+$description$
+W typie generycznym można zastosować ograniczenie dolne T super Class.
+
+$answer$
+n
+
+$explanation$
+Dla typu generycznego można zastować tylko I wyłącznie górną granicę.
+
+$task$ 7
+
+$description$
+W przypadku deklaracji typu generycznego słowo kluczowe implements jest wymienne z "&".
+
+$answer$
+n
+
+$explanation$
+Nie można używać słowa kluczowego implements w przypadku deklaracji typu generycznego, 
+który implementuje interfejs. Należy natomiast użyć słowa kluczowego extends.
+
+$task$ 8
+
+$description$
+Inferencja typów to "umiejętność" kompilatora do odgadywania typów generycznych.
+
+$answer$
+y
+
+$explanation$
+Inferencja typów (wnioskowanie) zdolność kompilatora do sprawdzania każdego wywołania metody 
+oraz ich odpowiedniej deklaracji w celu określenia typu argumentu, który jest akceptowalny przy wywowyłaniu.
+Więcej można poczytać pod tym linkiem: https://docs.oracle.com/javase/tutorial/java/generics/genTypeInference.html
+
+$task$ 9
+
+$description$
+Według ogólnej konwencji deklarowania typu generycznego, symbol E oznacza "Enumeration".
+
+$answer$
+n
+
+$explanation$
+Według ogólnej konwencji deklarowania typu generycznego, symbol E oznacza "Element".
+
+$task$ 10
+
+$description$
+W Javie 8 wprowadzono operator diamentu <>, który eliminuje redundancje deklaracji typu.
+
+$answer$
+n
+
+$explanation$
+Operator diamentu <> został wprowadzony w Javie 7.
+
+$task$ 11
+
+$description$
+Możliwe jest ugenerycznienie metody statycznej.
+
+$answer$
+y
+
+$explanation$
+Tak, możemy ugenerycznić metodę statyczną.
+
+$task$ 12
+
+$description$
+Przy deklaracji typów generycznych słówko "extends" oznacza ograniczenie typu od góry natomiast "super" od dołu.
+
+$answer$
+y
+
+$explanation$
+Słowko kluczowe "extends" oznacza górną granicę typu generycznego natomiast super dolną.
+Warto pamiętać, że tak naprawdę typy generyczne możemy ograniczyć tylko od góry (extends).
+Ograniczenie od góry jest tylko i wyłącznie możliwe w przypadku deklaracji dzikich kart ("?").
+
+
+$task$ 13
+
+$description$
+Jest możliwe wielokrotne ograniczenie typu generycznego, np. <T extends K & v>.
+
+$answer$
+y
+
+$explanation$
+Typy generycznie możemy wielokorotnie ograniczyć używając składni 
+<TypGeneryczny extends & DrugiTyp & TrzeciTyp>.
+Link: https://docs.oracle.com/javase/tutorial/java/generics/bounded.html
+
+$task$ 14
+
+$description$
+List<Integer> nie jest podtypem List<Number>.
+
+$answer$
+y
+
+$explanation$
+O ile klasa Integer jest podtypem klasy Number to w przypadku
+klasy MyClass<Integer> nie jest ona podtypem klasy MyClass<Number>.
+Obu tych klas nadklasą jest klasa Object.
+Link: https://docs.oracle.com/javase/tutorial/java/generics/inheritance.html
+
+
+$task$ 15
+
+$description$
+"Bridge methods" to metody dodawane automatycznie w trakcie kompilacji,
+w przypadku hierarchi dziedziczenia z wykorzystaniem typów generycznych,
+by zachować kompatybilność wstęczną.
+
+$answer$
+y
+
+$explanation$
+"Bridge methods" są generowanie automatycznie przez kompilator
+w przypadku użycia typów generycznych aby zachować możliwość
+wykorzystania zachowania polimorficznego (nadpisanie metody z klasy bazowej).
+Link: https://hajsoftutorial.com/java-bridge-method/

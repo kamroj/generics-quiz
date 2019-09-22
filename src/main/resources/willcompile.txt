@@ -1,0 +1,460 @@
+$task$ 1
+
+$description$
+class GenericMethod {
+    void <T> handleOperation(T t) {
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Zła struktura metody. Informacja o typie generycznym występuje przed typem zwrotnym metody.
+
+$task$ 2
+
+$description$
+class GenericMethod {
+    T operate (T t) {
+        return t;
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Typ generyczny nie jest zdefiniowany. Brakuje deklaracji typu przy nazwie klasy.
+
+$task$ 3
+
+$description$
+class GenericMethod <T> {
+    <R> R handleOperation(Function<T, R> function, T t) {
+        return function.apply(t);
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 4
+
+
+$description$
+class GenericMethod {
+    <K V> void handleOperation(K k, V v) {
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Brakuje przecinka pomiędzy deklaracjami typów generycznych.
+
+$task$ 5
+
+$description$
+class GenericArray<E> {
+    E[] handleOperation(int size) {
+        return new E[size];
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Nie można inicjalizaować tablicy typów generycznych.
+http://www.angelikalanger.com/Articles/Papers/JavaGenerics/ArraysInJavaGenerics.htm
+
+$task$ 6
+
+$description$
+class GenericArray {
+ private static <T> void handleOperation(T[] array, Consumer<T> consumer) {
+        for (T t : array) {
+            consumer.accept(t);
+        }
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 7
+
+$description$
+class GenericArrayField<E> {
+    private E[] elements;
+
+    GenericArrayField(E[] elements) {
+        this.elements = elements;
+    }
+
+    E[] getArray() {
+        return elements;
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 8
+
+$description$
+class Generic<T> {
+    public static void main(String[] args) {
+        Generic<double> genericArray = new Generic<>();
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Typ generyczny nie może byc typem prymitywnym.
+Java podczas kompilacji rzutuje typy generyczne na odpowiednie typy.
+Innymi słowy, nasze typy generyczne w kodzie bajtowym są zapisane jako typ Object.
+
+$task$ 9
+
+$description$
+class GenericCollection {
+    private List<?> list;
+
+    GenericCollection(List<?> list) {
+        this.list = list;
+    }
+
+    Set<?> convertListToHashSet() {
+        return new HashSet<>(list);
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 10
+
+$description$
+class GenericCollection<T> {
+    private List<T> list;
+
+    GenericCollection() {
+        this.list = new ArrayList<>();
+    }
+
+    void addElementToList(T element) {
+        list.add(element);
+    }
+
+    void printAllElements() {
+        list.forEach(System.out::println);
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 11
+
+$description$
+enum Enum<T> {
+    First(1), Second(2), Third(3);
+
+    private int value;
+    private T t;
+
+    private Enum(int value, T t) {
+        this.value = value;
+        this.t = t;
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Enum nie może byc "ugeneryczniony". Teoretycznie są pewne obejścia,
+o których możesz poczytać pod tym linkiem: https://stackoverflow.com/questions/11490485/how-to-implement-enum-with-generics
+
+
+$task$ 12
+
+$description$
+interface Command<T extends Enum<T>> {
+    void handle(T command);
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 13
+
+$description$
+interface Operation <$> {
+    $ handle($ $);
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 14
+
+$description$
+interface Operation <$, %> {
+    $ handle(% %);
+}
+
+$answer$
+n
+
+$explanation$
+O ile znak dolara jest akceptowalny to znak procenta jest zarezerwowany dla operacji uzyskania reszty z dzielenia.
+
+$task$ 15
+
+$description$
+class Polymorphism {
+    private List<?> collection;
+
+    Polymorphism(List<?> list) {
+        collection = new ArrayList<>(list);
+    }
+
+    Polymorphism(ArrayList<?> secondList) {
+        collection = new ArrayList<>(secondList);
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 16
+
+$description$
+class Polymorphism {
+    private List<?> collection;
+
+    Polymorphism(List<String> list) {
+        collection = new ArrayList<>(list);
+    }
+
+    Polymorphism(List<Integer> secondList) {
+        collection = new ArrayList<>(secondList);
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Kod nie skompiluje się ponieważ podczas kompilacji następuje wymazywanie typów.
+To co jest widoczne dla kompilatora to:
+void Polymorphism(List list){ ... }
+void Polymorphism(List list){ ... }
+
+$task$ 17
+
+$description$
+class Stack<T> {
+    private List<T> collection;
+
+    Stack() {
+        collection = new LinkedList<>();
+    }
+
+    void push(T t) {
+        collection.add(t);
+    }
+
+    T pop() {
+        if (collection.size() == 0)
+            throw new IndexOutOfBoundsException("No more elements!");
+        return collection.remove(collection.size() - 1);
+    }
+
+    T peek() {
+        return collection.get(collection.size() - 1);
+    }
+
+    boolean isEmpty() {
+        return collection.size() == 0;
+    }
+
+    void clear() {
+        collection.clear();
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 18
+
+$description$
+class Exc {
+  public <E> void throwException (Function<String, E> exceptionType, String message) throws E {
+        throw exceptionType.apply(message);
+    }
+}
+
+$answer$
+n
+
+$explanation$
+Typ generyczny musi rozszerzać klasę Throwable aby kod się skompilował.
+
+$task$ 19
+
+$description$
+class Generic {
+    public <T> NestedGeneric<T> createNestedClass() {
+        return new NestedGeneric<>();
+    }
+
+    class NestedGeneric<T> {
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 20
+
+$description$
+<T super Integer> void handleOperation(List<T> list) {
+        (...)
+}
+
+$answer$
+n
+
+$explanation$
+Dolną granicę możemy zastosować tylko w przypadku użycia dzikiej karty w kolekcjach. 
+
+$task$ 21
+
+$description$
+static <T extends Serializable> void printAll(T[] myList) {
+    for (T t: myList) {
+       System.out.println(t);
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 22
+
+$description$
+<T extends <L extends Cloneable> void print(T t) { 
+	(...) 
+}
+
+$answer$
+n
+
+$explanation$
+Nie można zdefiniować typu generycznego ograniczonego od dołu typem generycznym,
+który to implementuje interfejs Clonable.
+
+$task$ 23
+
+$description$
+class Foo <L> {
+    <T extends L> void handle(T t) {
+		(...)
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 24
+
+$description$
+class GenericsAreFun<T extends K, K extends Comparator<T>> {
+    private T t;
+    private K k;
+
+    public GenericsAreFun(T t, K k) {
+        this.t = t;
+        this.k = k;
+    }
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 25
+
+$description$
+interface PayloadList<E,P> extends List<E> {
+  void setPayload(int index, P val);
+}
+
+$answer$
+y
+
+$explanation$
+Ten kawałek kodu się skompiluje :)
+
+$task$ 26
+
+$description$
+class WildcardMadam {
+  void foo(List<?> i) {
+    i.set(0, i.get(0));
+  }
+}
+
+$answer$
+n
+
+$explanation$
+Kompilator określa typ parametru i jako Object.
+Kiedy metoda foo wywołuje List.set(int, E), kompilator nie jest wstanie
+potwierdzić typu obiektu który jest wkładany do listy.

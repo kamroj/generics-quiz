@@ -1,0 +1,134 @@
+$task$ 1
+
+$description$
+<t> class GenericsAreFun {
+    private t t;
+
+    r changeToT(Function<t, r> function) {
+        return function.apply(t);
+    }
+}
+
+$answer$
+3
+
+$explanation$
+Lista błędów:
+
+1. Deklaracja typu generycznego <t> powinna być po nazwie klasy.
+2. Brak konstruktora, który definiuje czym w ogóle jest typ “t”.
+3. Brak deklaracji typu generycznego <r> przed nazwą metody.
+ 
+ps. deklaracja typu generycznego małą literą nie powoduje błędów natomiast jest złamaniem konwencji.
+
+$task$ 2
+
+$description$
+class GenericsAreFun<T super Integer> {
+    static T doSth(T t, T t){
+        return t;
+    }
+}
+$answer$
+3
+
+$explanation$
+Lista błędów:
+
+1. Typ generyczny nie może być zastosowany w przypadku metod statycznych.
+2. Nie można określać dolnej granicy w przypadku typów generycznych.
+3. Argumenty metody doSth są identyczne, zatem kompilator nie wie, którą wartość powinien zwrócić.
+
+$task$ 3
+
+$description$
+class GenericsAreFun<T K extends Number implements RandomAccess, Completion> {
+    private T t;
+    
+    GenericsAreFun(T t) {
+        this.t = t;
+    }
+    
+    K doSth(List<? extends K> elements){
+        return elements.stream().findFirst().get();
+    }
+}
+
+$answer$
+2
+
+$explanation$
+Lista błędów:
+
+1. Przecinek między typami generycznymi T, K.
+2. Słówko "implements" nie istnieje w przypadku deklaracji typów generycznych. Używa się zawsze słowka "extends"
+w przypadku pierwszego rozszerzenia czy to interfejsu czy klasy. 
+Jeżeli chcemy kontynuować ograniczanie typu generycznego o kolejne interfejsy używamy ampersanta "&".
+
+ps. tak naprawdę Completion to nie kolejny interfejs a zadeklarowany typ generyczny, którego nie używamy w klasie. 
+Nie spowoduje błędów w trakcie kompilacji ani wykonywania ale Pan Martin nie byłby z nas zadowolony :-)
+
+$task$ 4
+
+$description$
+public class Pair<K, V> {
+
+    private K key;
+    private V value;
+
+    public Pair(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+
+    public void setKey(K key) { this.key = key; }
+    public void setValue(V value) { this.value = value; }
+    public K getKey()   { return key; }
+    public V getValue() { return value; }
+}
+
+public class Util {
+    public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2) {
+        return p1.getKey().equals(p2.getKey()) &&
+               p1.getValue().equals(p2.getValue());
+    }
+	
+	public static void main(String[] args) {
+		Pair<Integer, String> p1 = new Pair<>(1, "apple");
+		Pair<Integer, String> p2 = new Pair<>(2, "pear");
+		boolean same = Util.<Integer, String>compare(p1, p2);
+	}
+}
+
+$answer$
+0
+
+$explanation$
+Ten przykład nie zawiera błędów uniemożliwiających kompilacje.
+W zależności od tego czy używamy Javy 7 lub wzwyż, to jedynym smrodem
+jest 'Util.<Integer, String>compare(p1, p2)' kawałek kodu.
+Ps. ten kawałek kodu jest żywcem ściągnięty z: 
+https://docs.oracle.com/javase/tutorial/java/generics/methods.html
+Polecam przeczytać :)
+
+$task$ 5
+
+$description$
+public class GreaterHelper {
+  public static <T extends Integer> int countGreaterThan(T[] anArray, T elem) {
+    int count = 0;
+    for (T e : anArray)
+      if (e > elem)
+        ++count;
+    return count;
+  }
+}
+
+$answer$
+1
+
+$explanation$
+Operator porównania ">" może zostać użyty tylko i wyłącznie w przypadku typów prymitywnych.
+
+
+
